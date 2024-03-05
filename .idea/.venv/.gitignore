@@ -2,3 +2,10 @@
 .env
 email.cpython-39.pyc
 email.cpython-312.pyc
+.pyc
+test.py
+SVM.py
+cover/
+stego/
+attachements/
+__pycache__/
