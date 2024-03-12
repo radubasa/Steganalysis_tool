@@ -26,7 +26,6 @@ else:
 mail.select('INBOX')
 
 
-
 # Fetch the latest email
 status, data = mail.search(None, 'ALL')
 latest_email_id = data[0].split()[-1]
