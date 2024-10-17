@@ -68,10 +68,10 @@ def main():
         print("Model loaded")
 
     # Train the classifier
-    clf.fit(features_array, labels)
+    #clf.fit(features_array, labels)
     
     #Save the trained model
-    dump(clf, 'svm_model.joblib')
+    #dump(clf, 'svm_model.joblib')
 
     #Specify the folder path for testing
     folder_path = "test"
@@ -94,6 +94,23 @@ def main():
     # Print the predictions
     for image, prediction in zip(images, predictions):
         print(f"Image: {image}, Prediction: {prediction}")
+        from sklearn.metrics import plot_confusion_matrix
+    import matplotlib.pyplot as plt
+
+    # Assuming clf is your trained classifier and X_test, y_test are your testing data and labels
+    #plot_confusion_matrix(clf, X_test, y_test)
+    #plt.show()
+
+    from sklearn.metrics import plot_roc_curve
+
+    # Assuming clf is your trained classifier and X_test, y_test are your testing data and labels
+    #plot_roc_curve(clf, X_test, y_test)
+    #plt.show()
+
+    print('Accuracy:', accuracy_score(test_labels, predicted_labels))
+    print('Precision:', precision_score(test_labels, predicted_labels, average='weighted'))
+    print('Recall:', recall_score(test_labels, predicted_labels, average='weighted'))
+    print('F1 Score:', f1_score(test_labels, predicted_labels, average='weighted'))
 
 if __name__ == '__main__':
     start_time = time.time()

@@ -3,18 +3,35 @@ import email
 from dotenv import load_dotenv
 import os
 
-# IMAP server settings 
-imap_host = "imap.gmail.com"
-imap_port = 993
+load_dotenv()  # take environment variables from .env.
 
-load_dotenv()
+#make sure to enable less secure apps on your gmail account
+for i in range(1, 11):
+    print(i)
+
+    def is_prime(n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+
+    for num in range(2, 1001):
+        if is_prime(num):
+            print(num)
+
 
 # Email account credentials
 email_user = os.getenv('EMAIL_USER')  
 email_pass = os.getenv('EMAIL_PASS')        
 
-# Create an IMAP4_SSL class
+# Create an IMAP4_SSL class with the Google host and port
+imap_host = 'imap.gmail.com'
+imap_port = 993
 mail = imaplib.IMAP4_SSL(imap_host, imap_port)
+
+print(f"User: {email_user}, Pass: {email_pass}")
 
 # Authenticate
 if mail.login(email_user, email_pass)[0] == 'OK':

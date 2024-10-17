@@ -19,7 +19,6 @@ from joblib import dump
 from joblib import load
 from concurrent.futures import ThreadPoolExecutor
 
-
 start_time = time.time()
 
 def extract_images_from_folder(folder_path):
